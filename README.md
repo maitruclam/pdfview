@@ -3,6 +3,8 @@
 **Version:** 1.3.0  
 **Author:** [maitruclam.com](https://maitruclam.com)  
 **License:** GPL v2 or later
+<img width="1911" height="917" alt="image" src="https://github.com/user-attachments/assets/49261fc5-2bdb-404e-b0d3-37abce3ffd70" />
+
 
 ## 🇬🇧 English
 
