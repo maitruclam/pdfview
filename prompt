@@ -1,0 +1,70 @@
+This is the original prompt used to create the plugin, which after using this prompt will have most of the existing features. After completing, I continued the chat to fix the logic, performance errors and test locally then test on the cloud on the latest version of wordpress:
+
+Tạo plugin WordPress để hiển thị và quản lý file PDF từ thư mục uploads với cấu trúc thư mục phức tạp (thư mục chính > thư mục con > file PDF).
+
+## Các tính năng đã hoàn thành
+
+### 1. **Giao diện người dùng (Frontend)**
+
+- Hiển thị file PDF dạng lưới (grid layout) với card đẹp mắt
+- Mỗi card bao gồm:
+- Ảnh bìa PDF (tự động tìm file ảnh có tên pattern: `tên-file-pdf.jpg` hoặc `tên-file-pdf-pdf.jpg`)
+- Tên file PDF
+- Nút Download với icon
+- Click vào ảnh bìa → mở PDF trong popup toàn màn hình (không chuyển trang)
+- Click vào vùng đen (overlay) bên ngoài → đóng popup
+- Popup PDF được căn giữa hoàn toàn trên mọi kích thước màn hình
+
+### 2. **Bộ lọc (Filter System)**
+
+- Bố cục nằm ngang (horizontal layout)
+- 2 cấp lọc:
+- Dropdown thư mục chính (có thể đổi tên hiển thị)
+- Dropdown thư mục con (tự động cập nhật theo thư mục chính)
+- Nút "Đặt lại bộ lọc" để reset về mặc định
+- **Đã loại bỏ chức năng tìm kiếm** theo yêu cầu
+
+### 3. **Trang quản trị Admin Dashboard**
+
+Truy cập: **Admin Dashboard > MTL PDF...**
+Các cài đặt có thể tùy chỉnh:
+
+- **Đường dẫn thư mục PDF**: Thay đổi thư mục gốc chứa file PDF
+- **Đổi tên hiển thị thư mục**: Map tên thư mục thực (viết tắt) sang tên hiển thị đầy đủ
+- **Đổi tên nhãn bộ lọc**:
+- Tên hiển thị cho "Thư mục chính"
+- Tên hiển thị cho "Thư mục con"
+- **Cấu hình grid layout**: Số cột hiển thị theo thiết bị
+- Mobile (< 768px): mặc định 1 cột
+- Tablet (768px - 1024px): mặc định 2 cột
+- Desktop (> 1024px): mặc định 3 cột
+
+### 4. **Tính năng kỹ thuật**
+
+- Tự động quét cấu trúc thư mục và file PDF
+- Tự động tìm ảnh bìa với nhiều pattern khác nhau
+- Responsive design hoàn toàn
+- Sử dụng AJAX để load dữ liệu không reload trang
+- Shortcode: `[mtl_pdf]` để thêm vào bất kỳ trang/bài viết nào
+
+### 5. **Thông tin plugin**
+
+- **Tên**: MTL PDF View Gallery
+- **Tên menu admin**: MTL PDF...
+- **Tác giả**: maitruclam.com
+- **Version**: 1.0
+
+## Cấu trúc file plugin
+
+```plaintext
+wp-mtl-pdf/
+├── wp-mtl-pdf.php (file chính)
+├── templates/
+│   ├── browser.php (giao diện frontend)
+│   └── admin-page.php (trang quản trị)
+├── assets/
+│   ├── style.css (CSS frontend)
+│   ├── script.js (JavaScript frontend)
+│   └── admin-style.css (CSS admin)
+└── README.md
+```
